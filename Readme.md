@@ -5,6 +5,9 @@
 * [Default.aspx.cs](./CS/Default.aspx.cs) (VB: [Default.aspx.vb](./VB/Default.aspx.vb))
 <!-- default file list end -->
 # How to show files preview as a thumbnail in ASPxFileManager
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/t298675/)**
+<!-- run online end -->
 
 
 <p>This example is a simplified implementation of the DXDocs demo that illustrates how to create a file thumbnail based on the first page of the document. <br>The <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebASPxFileManager_CustomThumbnailtopic">ASPxFileManager.CustomThumbnail</a> event is used for defining a custom value for the <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebFileManagerItem_ThumbnailUrltopic">FileManagerItem.ThumbnailUrl</a> property. Since this solution does not provide a cashing mechanism, previews are generated on each request. To increase application performance, refer to the <em>FileSystemService</em> class of the DXDocs demo.</p>
