@@ -48,8 +48,8 @@ public partial class _Default : System.Web.UI.Page {
         return UrlUtils.ResolvePhysicalPath(virtPath);
     }
 
-    IPrintable CreatePrintableComponent(string extention, Stream contentStream) {
-        IPrintable component;
+    IBasePrintable CreatePrintableComponent(string extention, Stream contentStream) {
+        IBasePrintable component;
         if (RICH_EDIT_TYPES.Contains(extention)) {
             RichEditDocumentServer docServer = new RichEditDocumentServer();
             switch (extention) {
@@ -84,7 +84,7 @@ public partial class _Default : System.Web.UI.Page {
         string extention = Path.GetExtension(item.RelativeName);
         Stream contentStream;
         using (contentStream = File.OpenRead(fullname)) {
-            IPrintable component = CreatePrintableComponent(extention, contentStream);
+            IBasePrintable component = CreatePrintableComponent(extention, contentStream);
             MemoryStream stream = InitializeThumbnail(component);
             string thumbPath = @"~\Imgs";
             string fullThumbname = GetFileName(thumbPath);
@@ -95,7 +95,7 @@ public partial class _Default : System.Web.UI.Page {
         }
     }
 
-    MemoryStream InitializeThumbnail(IPrintable component) {
+    MemoryStream InitializeThumbnail(IBasePrintable component) {
         PrintableComponentLinkBase pcl = new PrintableComponentLinkBase(new PrintingSystemBase());
         pcl.Component = component;
         pcl.CreateDocument();

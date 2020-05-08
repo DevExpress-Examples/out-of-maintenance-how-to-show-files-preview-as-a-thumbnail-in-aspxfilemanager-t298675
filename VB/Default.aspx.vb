@@ -50,8 +50,8 @@ Partial Public Class _Default
         Return UrlUtils.ResolvePhysicalPath(virtPath)
     End Function
 
-    Private Function CreatePrintableComponent(ByVal extention As String, ByVal contentStream As Stream) As IPrintable
-        Dim component As IPrintable
+    Private Function CreatePrintableComponent(ByVal extention As String, ByVal contentStream As Stream) As IBasePrintable
+        Dim component As IBasePrintable
         If RICH_EDIT_TYPES.Contains(extention) Then
             Dim docServer As New RichEditDocumentServer()
             Select Case extention
@@ -94,7 +94,7 @@ Partial Public Class _Default
         Dim contentStream As Stream
         contentStream = File.OpenRead(fullname)
         Using contentStream
-            Dim component As IPrintable = CreatePrintableComponent(extention, contentStream)
+            Dim component As IBasePrintable = CreatePrintableComponent(extention, contentStream)
             Dim stream As MemoryStream = InitializeThumbnail(component)
             Dim thumbPath As String = "~\Imgs"
             Dim fullThumbname As String = GetFileName(thumbPath)
@@ -106,7 +106,7 @@ Partial Public Class _Default
         End Using
     End Function
 
-    Private Function InitializeThumbnail(ByVal component As IPrintable) As MemoryStream
+    Private Function InitializeThumbnail(ByVal component As IBasePrintable) As MemoryStream
         Dim pcl As New PrintableComponentLinkBase(New PrintingSystemBase())
         pcl.Component = component
         pcl.CreateDocument()
