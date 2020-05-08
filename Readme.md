@@ -9,8 +9,9 @@
 **[[Run Online]](https://codecentral.devexpress.com/t298675/)**
 <!-- run online end -->
 
-#Note
-In v20.1 the RichEditDocumentServer component implements the [IBasePrintable](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.IBasePrintable) interface (not [IPrintable][1]), which includes cross-platform functionality extracted from the *IPrintable* interface.
+**Note** 
+
+In v20.1 the RichEditDocumentServer component implements the [IBasePrintable](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.IBasePrintable) interface (not [IPrintable](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.IPrintable)), which includes cross-platform functionality extracted from the *IPrintable* interface.
 We introduced these changes to eliminate platform dependencies in the Printing.Core assembly.
 
 <p>This example is a simplified implementation of the DXDocs demo that illustrates how to create a file thumbnail based on the first page of the document. <br>The <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebASPxFileManager_CustomThumbnailtopic">ASPxFileManager.CustomThumbnail</a> event is used for defining a custom value for the <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebFileManagerItem_ThumbnailUrltopic">FileManagerItem.ThumbnailUrl</a> property. Since this solution does not provide a cashing mechanism, previews are generated on each request. To increase application performance, refer to the <em>FileSystemService</em> class of the DXDocs demo.</p>
